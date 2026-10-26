@@ -1,0 +1,7 @@
+# Git worktrees created by tooling live here; never part of the published source.
+.claude/
+
+# Build output — regenerate with ./build.sh
+dist/
+
+.DS_Store

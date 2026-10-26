@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Tennis Ranking Points Breakdown",
+  "version": "1.0.0",
+  "description": "Adds a link from every player name on live-tennis.eu straight to that player's ranking points breakdown on tennistonic.com.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://tennistonic.com/*"],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://live-tennis.eu/*", "https://www.live-tennis.eu/*"],
+      "js": ["src/target-public.js", "src/inject-livetennis.js"],
+      "css": ["src/inject.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["go.html"],
+      "matches": ["https://live-tennis.eu/*", "https://www.live-tennis.eu/*"]
+    }
+  ]
+}

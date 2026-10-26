@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Tennis Ranking Points Breakdown (full)",
+  "version": "1.0.0",
+  "description": "Links player names on live-tennis.eu to a sortable breakdown of where all their ranking points come from and when they expire.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://tennistonic.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://live-tennis.eu/*", "https://www.live-tennis.eu/*"],
+      "js": ["src/target-full.js", "src/inject-livetennis.js"],
+      "css": ["src/inject.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://tennistonic.com/stats-players/*", "https://www.tennistonic.com/stats-players/*"],
+      "js": ["src/lib/parse.js", "src/lib/render.js", "src/enhance-tennistonic.js"],
+      "css": ["src/table.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["viewer.html"],
+      "matches": ["https://live-tennis.eu/*", "https://www.live-tennis.eu/*"]
+    }
+  ]
+}

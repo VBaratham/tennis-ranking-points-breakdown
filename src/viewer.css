@@ -1,0 +1,58 @@
+/*
+ * Viewer-page-only theming. Loaded by viewer.html and never injected into
+ * another site, so it is free to set page-wide color-scheme on :root — which is
+ * what themes the window canvas and root scrollbars, not just the body.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  --ltp-c-bg-light: #fff;
+  --ltp-c-bg-dark: #1c1f24;
+  --ltp-c-fg-light: #16181d;
+  --ltp-c-fg-dark: #e8eaed;
+  --ltp-c-dim-light: #6b7280;
+  --ltp-c-dim-dark: #9aa3af;
+  --ltp-c-line-light: #e3e6ea;
+  --ltp-c-line-dark: #2e333b;
+  --ltp-c-head-light: #f0f2f5;
+  --ltp-c-head-dark: #23272e;
+  --ltp-c-accent-light: #0b65c2;
+  --ltp-c-accent-dark: #68aef5;
+  --ltp-c-soon-light: #fff6e5;
+  --ltp-c-soon-dark: #3a2f17;
+  --ltp-c-hover-light: #f4f8fd;
+  --ltp-c-hover-dark: #242a32;
+  --ltp-c-page-light: #f6f7f9;
+  --ltp-c-page-dark: #15171b;
+
+  --ltp-panel-bg: light-dark(var(--ltp-c-bg-light), var(--ltp-c-bg-dark));
+  --ltp-panel-fg: light-dark(var(--ltp-c-fg-light), var(--ltp-c-fg-dark));
+  --ltp-panel-dim: light-dark(var(--ltp-c-dim-light), var(--ltp-c-dim-dark));
+  --ltp-panel-line: light-dark(var(--ltp-c-line-light), var(--ltp-c-line-dark));
+}
+
+.ltp-page {
+  margin: 0;
+  padding: 24px;
+  background: light-dark(var(--ltp-c-page-light), var(--ltp-c-page-dark));
+  color: light-dark(var(--ltp-c-fg-light), var(--ltp-c-fg-dark));
+  font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Remap the component tokens from table.css rather than restating its rules. */
+.ltp-page .ltp-root {
+  color-scheme: light dark;
+  --ltp-bg: light-dark(var(--ltp-c-bg-light), var(--ltp-c-bg-dark));
+  --ltp-fg: light-dark(var(--ltp-c-fg-light), var(--ltp-c-fg-dark));
+  --ltp-dim: light-dark(var(--ltp-c-dim-light), var(--ltp-c-dim-dark));
+  --ltp-line: light-dark(var(--ltp-c-line-light), var(--ltp-c-line-dark));
+  --ltp-head: light-dark(var(--ltp-c-head-light), var(--ltp-c-head-dark));
+  --ltp-accent: light-dark(var(--ltp-c-accent-light), var(--ltp-c-accent-dark));
+  --ltp-soon: light-dark(var(--ltp-c-soon-light), var(--ltp-c-soon-dark));
+  --ltp-hover: light-dark(var(--ltp-c-hover-light), var(--ltp-c-hover-dark));
+}
+
+.ltp-page .ltp-candidates a { color: light-dark(var(--ltp-c-accent-light), var(--ltp-c-accent-dark)); }
+
+.ltp-page .ltp-root { box-shadow: 0 1px 2px light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 40%)); }
